@@ -1,1 +1,100 @@
-<!-- Placeholder: index.html content previously generated -->
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tingr – Digital beslutningsplattform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #111; line-height: 1.6; }
+    header { background: #111; color: #fff; padding: 3rem 1rem; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    nav { background: #eee; text-align: center; padding: 1rem; }
+    nav a { margin: 0 1rem; color: #333; text-decoration: none; font-weight: 600; }
+    .container { max-width: 800px; margin: auto; padding: 2rem 1rem; }
+    section { margin-bottom: 2rem; }
+    h2 { font-size: 1.75rem; color: #222; margin-bottom: 0.5rem; }
+    ul { padding-left: 1.5rem; }
+    .timeline { border-left: 3px solid #222; padding-left: 1rem; margin-top: 2rem; }
+    .timeline-entry { margin-bottom: 1.5rem; }
+    .timeline-entry strong { display: block; font-size: 1.1rem; margin-bottom: 0.2rem; }
+    footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #666; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tingr</h1>
+    <p>En digital plattform for trygg, sporbar og demokratisk beslutningstaking</p>
+  </header>
+  <nav>
+    <a href="/">Hjem</a>
+    <a href="/om-tingr.html">Om Tingr</a>
+  </nav>
+  <div class="container">
+    <section>
+      <h2>Hva betyr Tingr?</h2>
+      <p><strong>Tingr</strong> er inspirert av det norrøne ordet <em>ting</em>, som i vikingtiden og middelalderen ble brukt om forsamlinger der fri menn møttes for å diskutere og avgjøre viktige saker. Et "ting" var både en møteplass og en rettsinstans – et demokratisk samlingspunkt før moderne stater. Tingr bringer denne tradisjonen inn i en digital og global tidsalder.</p>
+    </section>
+    <section>
+      <h2>Hva er Tingr?</h2>
+      <p>Tingr er en ny digital beslutningsplattform som bruker blokkjedeteknologi for å sikre rettferdige og transparente valg i organisasjoner og grupper. Den er bygget for å følge nasjonale lover og interne vedtekter.</p>
+    </section>
+    <section>
+      <h2>Kjernefunksjoner</h2>
+      <ul>
+        <li>Autentisering via Vipps eller e-post (midlertidig)</li>
+        <li>Stemmerepresentasjon basert på andelsrett (ikke økonomisk verdi)</li>
+        <li>Privat blokkjedelogg (PoA) for stemmer og revisjoner</li>
+        <li>Støtte for åpen og anonym stemmegivning</li>
+        <li>Revisjonsperiode og nedlastbar stemmebackup</li>
+        <li>Automatisk sletting av stemmer etter definerte frister</li>
+        <li>Invitasjonsbasert tilgang – kun autoriserte brukere</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Bruksområder</h2>
+      <ul>
+        <li>Generalforsamlinger i selskaper</li>
+        <li>Hastestemmer i krisesituasjoner</li>
+        <li>Ideelle organisasjoner med medlemsvedtekter</li>
+        <li>Etniske, nasjonale eller kulturelle grupperinger</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Progresjon</h2>
+      <div class="timeline">
+        <div class="timeline-entry">
+          <strong>April–Mai</strong>
+          Oppstart og definisjon av konsept, navnevalg (Tingr), teknologivalg, blokkjede-design, flytpresentasjoner.
+        </div>
+        <div class="timeline-entry">
+          <strong>17. mai</strong>
+          MVP nesten klar – backend, smartkontrakter, stemmestruktur og revisjonslogikk ferdigstilt.
+        </div>
+        <div class="timeline-entry">
+          <strong>Mai–Juni</strong>
+          Frontend UI, testmiljø på <code>tingr.ai</code>, oppsett med Vercel, Render og PostgreSQL.
+        </div>
+        <div class="timeline-entry">
+          <strong>Juni–Juli</strong>
+          Pilotering med utvalgte brukere og organisasjoner, innhenting av tilbakemelding.
+        </div>
+        <div class="timeline-entry">
+          <strong>August</strong>
+          Planlagt åpen lansering med fokus på brukervennlighet, sikkerhet og skalerbarhet.
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Bli med videre</h2>
+      <p>Ønsker du å være med i testfasen eller bli informert om lansering? Ta kontakt: <strong>post@tingr.no</strong></p>
+    </section>
+  </div>
+  <footer>
+    &copy; <span id="year"></span> Tingr AS. Alle rettigheter reservert.
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
