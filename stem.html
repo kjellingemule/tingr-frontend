@@ -1,33 +1,83 @@
-<section>
-  <h2>Test stemmegivning</h2>
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test stemmegivning – Tingr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+    input, select, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    #response {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stem på et forslag</h1>
   <form id="voteForm">
-    <label>Forslag ID: <input type="number" name="proposal_id" required></label><br>
-    <label>Valg:
-      <select name="choice">
-        <option value="yes">Ja</option>
-        <option value="no">Nei</option>
-      </select>
-    </label><br>
-    <button type="submit">Stem</button>
+    <label for="proposal_id">Forslags-ID:</label>
+    <input type="number" id="proposal_id" name="proposal_id" required>
+
+    <label for="choice">Valg:</label>
+    <select id="choice" name="choice">
+      <option value="yes">Ja</option>
+      <option value="no">Nei</option>
+    </select>
+
+    <button type="submit">Send stemme</button>
   </form>
+
   <p id="response"></p>
-</section>
 
-<script>
-  document.getElementById('voteForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const data = {
-      proposal_id: this.proposal_id.value,
-      choice: this.choice.value
-    };
+  <script>
+    document.getElementById('voteForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const data = {
+        proposal_id: this.proposal_id.value,
+        choice: this.choice.value
+      };
 
-    const res = await fetch('http://localhost:8000/api/v1/voting/cast', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      try {
+        const res = await fetch('http://localhost:8000/api/v1/voting/cast', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        document.getElementById('response').textContent = result.message || 'Ingen respons fra server.';
+      } catch (err) {
+        document.getElementById('response').textContent = 'Feil ved innsending: ' + err.message;
+      }
     });
-
-    const result = await res.json();
-    document.getElementById('response').textContent = result.message || 'No response';
-  });
-</script>
+  </script>
+</body>
+</html>
