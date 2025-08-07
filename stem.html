@@ -1,0 +1,33 @@
+<section>
+  <h2>Test stemmegivning</h2>
+  <form id="voteForm">
+    <label>Forslag ID: <input type="number" name="proposal_id" required></label><br>
+    <label>Valg:
+      <select name="choice">
+        <option value="yes">Ja</option>
+        <option value="no">Nei</option>
+      </select>
+    </label><br>
+    <button type="submit">Stem</button>
+  </form>
+  <p id="response"></p>
+</section>
+
+<script>
+  document.getElementById('voteForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const data = {
+      proposal_id: this.proposal_id.value,
+      choice: this.choice.value
+    };
+
+    const res = await fetch('http://localhost:8000/api/v1/voting/cast', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+    document.getElementById('response').textContent = result.message || 'No response';
+  });
+</script>
